@@ -27,6 +27,10 @@ const fetchAudio=(text)=>{
             loader.hidden=true;
             audio.onloadedmetadata=()=>audio.play();
             audio.onended=()=>button.disabled=false;  
-        }).catch(console.log);
+        }).catch(err=>{
+            button.disabled=false; 
+            loader.hidden=true;
+            console.log(err);
+        });
 }
 button.addEventListener('click',fetchJoke);
